@@ -13,6 +13,8 @@ const NewsBoard = ({ category }) => {
     //     console.log(data);
     //     setArticles(data.articles || []);
     //   });
+    console.log("API Key:", import.meta.env.VITE_API_KEY);
+console.log("URL:", url);
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
