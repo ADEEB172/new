@@ -14,20 +14,20 @@ const NewsBoard = ({ category }) => {
     //     setArticles(data.articles || []);
     //   });
     console.log("API Key:", import.meta.env.VITE_API_KEY);
-console.log("URL:", url);
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.errors) {
-          console.error(data.errors);
-          return; // Don't overwrite existing articles
-        }
-
-        setArticles(data.articles);
+    console.log("URL:", url);
+    fetch(url, { mode: "cors" })
+      .then((res) => {
+        console.log("Status:", res.status);
+        return res.json();
       })
-      .catch(console.error);
+      .then((data) => {
+        console.log(data);
+        setArticles(data.articles || []);
+      })
+      .catch((error) => {
+        console.error("Error fetching news:", error);
+      });
   }, [category]);
-
   return (
     <div className="container py-4">
       <h2 className="text-center mb-4">
