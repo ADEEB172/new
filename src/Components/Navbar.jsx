@@ -30,7 +30,7 @@ const Navbar = ({ setCategory }) => {
               </div>
             </li>
             <li className="nav-item">
-              <div className="nav-link" onClick={() => setCategory("Business")}>
+              <div className="nav-link" onClick={() => setCategory("business")}>
                 Business
               </div>
             </li>
